@@ -1,0 +1,12 @@
+{% extends 'collage/base.html' %}
+
+{% block title %} Collage Details {% endblock %}
+{% block body %}
+<img src="{{ "/media/"|add:collage.background_image.name|add:collage.objects_iamge.name }}" class="img-responsive">
+    <img src = "{{ collage.background_image.url }}">
+    <img src = "{{ collage.objects_iamge.url }}">
+
+    {% if error_message %}
+        <p><strong>{{ error_message }}</strong></p>
+    {% endif %}
+{% endblock %}

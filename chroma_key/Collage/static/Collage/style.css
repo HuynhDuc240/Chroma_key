@@ -1,0 +1,12 @@
+body{
+    background: white url("images/backgrounds-blank-blue-953214.jpg")
+}
+.navbar{
+    border-radius: 0
+}
+.navbar-brand{
+    font-family: 'Satisfy', cursive;
+}
+.h3{
+    color: crimson
+}

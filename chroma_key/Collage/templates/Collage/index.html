@@ -1,0 +1,27 @@
+{% extends 'Collage/base.html' %}
+
+{% block body %}
+    {% if object_list %}
+        {% for col in object_list %}
+            <div class="col-sm-4 col-lg-2">
+                <div class="thumbnail">
+                    <a href="{% url 'collage:detail' col.id %}">
+                        <img src="{{ "/media/"|add:col.background_image.name|add:col.objects_iamge.name }}" class="img-responsive">
+                    </a>
+                    <div class="caption">
+                        <form action="{% url 'collage:collage-delete' col.id %}" method="post" style="display: inline;">
+                                {% csrf_token %}
+                                <input type="hidden" name="collage_id" value="{{ col.id }}" />
+                                <button type="submit" class="btn btn-default btn-sm">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                </button>
+                            </form>
+                    </div>
+                </div>
+            </div>
+            {% cycle '' '' '' '' '' '<div class="clearfix visible-lg"></div>' %}
+        {% endfor %}
+    {% else %}
+        <h3> You don't have any collages</h3>
+    {% endif %}
+{% endblock %}
